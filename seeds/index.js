@@ -22,9 +22,18 @@ const seedDb = async () =>{
             author: '63d6402683ed075f5ee7c76f',
             location: `${cities[random1000].city},${cities[random1000].state}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: 'https://source.unsplash.com/collection/483251',
             description: 'This is even not a text may be I can use lorem ipusm but I used the reason hope you will not hate',
-            price
+            price,
+            images: [
+                {
+                    url: 'https://res.cloudinary.com/dzh00tnpb/image/upload/v1675272147/YELPCAMP/qnd28uwms8wlhiipqyyc.jpg',
+                    filename: 'YELPCAMP/qnd28uwms8wlhiipqyyc'
+                },
+                {
+                    url: 'https://res.cloudinary.com/dzh00tnpb/image/upload/v1675272151/YELPCAMP/zvlcl2r5dx2nioeybo0q.jpg',
+                    filename: 'YELPCAMP/zvlcl2r5dx2nioeybo0q'
+                }
+            ]
         })
         await camp.save();
     }

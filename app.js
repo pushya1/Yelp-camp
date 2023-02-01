@@ -1,3 +1,7 @@
+if(process.env.NODE_ENV != "production"){
+    require('dotenv').config();
+}
+
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -87,5 +91,5 @@ app.use((err,req,res,next)=>{
     res.status(statusCode).render('error',{err});
 })
 app.listen(3000,()=>{
-    console.log("Listing in localhost:3000");
+    console.log("Listing in port:3000");
 })
