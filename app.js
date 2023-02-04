@@ -11,6 +11,7 @@ const ejsMate = require('ejs-mate');
 const session = require('express-session'); 
 const flash = require('connect-flash');
 const ExpressError = require('./utils/ExpressError');
+const mongoSanitize = require('express-mongo-sanitize');
 
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
@@ -38,6 +39,9 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
+app.use(mongoSanitize({
+    replaceWith: '_'
+}));
 
 const sessionConfig = {
     secret: 'thisshouldbeabettersecret!',
